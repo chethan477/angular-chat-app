@@ -1,0 +1,11 @@
+<mat-list>
+    <mat-list-item *ngFor="let contact of contacts">
+        <!-- <img matListAvatar src="{{contact.profile}}" alt="Profile"> -->
+        <img matListAvatar src="https://cdn.dribbble.com/users/499731/screenshots/3435273/proff.png" alt="Profile">
+        <h4 mat-line>{{contact.name}}</h4>
+        <p mat-line> {{contact.msg}} </p>
+        <p mat-line> {{contact.date | date}} </p>
+        <p matBadge="{{contact.notification}}" matBadgePosition="below"></p>
+        <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

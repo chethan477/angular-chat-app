@@ -1,0 +1,22 @@
+<ng-container *ngFor="let chat of chats;">
+    <div [ngClass]="{'received-chats': chat.id !== 0, 'outgoing-chats': chat.id === 0}">
+        <div [ngClass]="{'received-chats-msg': chat.id !== 0, 'outgoing-chats-msg': chat.id === 0}">
+            <p>{{chat.msg}}</p>
+            <span class="time">{{chat.date | date}}</span>
+        </div>
+    </div>
+</ng-container>
+
+<!-- <div class="received-msg">
+    <div class="received-msg-inbox">
+        <p>{{chat.msg}}</p>
+        <span class="time">{{chat.date}}</span>
+    </div>
+</div>
+
+<div class="outgoing-chats">
+    <div class="outgoing-chats-msg">
+        <p>{{chat.msg}}</p>
+        <span class="time">{{chat.date | date}}</span>
+    </div>
+</div> -->
