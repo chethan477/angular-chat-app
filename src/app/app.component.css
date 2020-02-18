@@ -14,3 +14,9 @@
     overflow-x: hidden;
     background-color: black;
 }
+
+.chat-action-bar-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
