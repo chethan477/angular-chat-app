@@ -413,4 +413,16 @@ export class MessageService {
   getAll() {
     return this.chats;
   }
+
+  send(msg: string) {
+    msg = msg.trim();
+
+    if (!msg) { return; }
+
+    this.chats.push({
+      "id": 0,
+      "msg": msg,
+      "date": new Date().toDateString()
+    })
+  }
 }

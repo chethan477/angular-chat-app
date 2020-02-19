@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-chat-action-bar',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatActionBarComponent implements OnInit {
 
-  constructor() { }
+  message: string;
 
-  ngOnInit(): void {
+  constructor(
+    private _msgService: MessageService
+  ) { }
+
+  ngOnInit(): void { }
+
+  send() {
+    this._msgService.send(this.message);
+    this.reset();
+  }
+
+  reset() {
+    this.message = '';
   }
 
 }
