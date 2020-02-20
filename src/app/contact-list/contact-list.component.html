@@ -1,7 +1,8 @@
 <mat-list>
-    <mat-list-item *ngFor="let contact of contacts">
+    <mat-list-item *ngFor="let contact of contacts" (click)="selectContact(contact)">
         <!-- <img matListAvatar src="{{contact.profile}}" alt="Profile"> -->
-        <img matListAvatar src="https://cdn.dribbble.com/users/499731/screenshots/3435273/proff.png" alt="Profile">
+        <img matListAvatar src="https://cdn.dribbble.com/users/499731/screenshots/3435273/proff.png" alt="Profile"
+            (click)="selectProfile($event, contact)">
         <h4 mat-line>{{contact.name}}</h4>
         <p mat-line> {{contact.msg}} </p>
         <p mat-line> {{contact.date | date}} </p>

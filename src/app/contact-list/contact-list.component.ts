@@ -23,4 +23,13 @@ export class ContactListComponent implements OnInit {
     this.contacts.map(i => i['notification'] = Math.round(Math.random() * 100));
   }
 
+  selectContact(contact) {
+    alert(contact.id);
+  }
+
+  selectProfile(event, contact) {
+    alert(contact.url);
+    event.stopPropagation();
+  }
+
 }
