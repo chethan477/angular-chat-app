@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../models/message';
 import { MessageService } from '../message.service';
 
@@ -8,6 +8,8 @@ import { MessageService } from '../message.service';
   styleUrls: ['./chat-window.component.css']
 })
 export class ChatWindowComponent implements OnInit {
+  @Input() myUID: number;
+
   chats: Message[] = [];
 
   constructor(
@@ -15,8 +17,15 @@ export class ChatWindowComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this._msgService.chats$.subscribe(
+      resp => this.chats = [...resp],
+      err => alert(err)
+    )
 
-    this.chats = this._msgService.getAll();
+    this._msgService.newMessage$.subscribe(
+      (resp: Message) => this.chats = [...this.chats, resp],
+      err => alert(err)
+    )
   }
 
 }
