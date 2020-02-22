@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MessageService } from './message.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-chat-app';
+  myUID = 0;
+
+  constructor(
+    private _msgService: MessageService
+  ) { }
+
+  ngOnInit() {
+    this._msgService.setMyUID(this.myUID);
+  }
 }
