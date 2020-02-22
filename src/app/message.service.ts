@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { Message } from './models/message';
 
 @Injectable({
@@ -7,411 +8,630 @@ import { Message } from './models/message';
 export class MessageService {
 
   chats: Message[] = [{
-    "id": 0,
-    "msg": "Cross-group asynchronous open architecture",
-    "date": "2019-07-05T23:54:53Z"
-  }, {
-    "id": 0,
-    "msg": "Extended full-range instruction set",
-    "date": "2019-05-19T10:35:09Z"
-  }, {
     "id": 1,
-    "msg": "Multi-tiered zero administration monitoring",
-    "date": "2019-02-12T16:31:53Z"
-  }, {
-    "id": 1,
-    "msg": "Pre-emptive bottom-line structure",
-    "date": "2019-06-09T20:55:11Z"
-  }, {
-    "id": 1,
-    "msg": "Configurable background algorithm",
-    "date": "2019-11-16T02:53:12Z"
-  }, {
-    "id": 1,
-    "msg": "Business-focused real-time process improvement",
-    "date": "2020-02-07T01:44:13Z"
-  }, {
-    "id": 1,
-    "msg": "Open-architected well-modulated access",
-    "date": "2019-03-15T11:12:51Z"
-  }, {
-    "id": 0,
-    "msg": "Proactive responsive protocol",
-    "date": "2019-07-31T23:56:15Z"
-  }, {
-    "id": 0,
-    "msg": "Reverse-engineered systematic hardware",
-    "date": "2019-09-28T18:05:13Z"
-  }, {
-    "id": 0,
-    "msg": "Re-contextualized scalable pricing structure",
-    "date": "2019-11-06T04:28:00Z"
-  }, {
-    "id": 0,
-    "msg": "Open-architected cohesive solution",
-    "date": "2019-06-29T05:36:05Z"
-  }, {
-    "id": 0,
-    "msg": "Stand-alone methodical Graphic Interface",
-    "date": "2019-04-18T01:44:45Z"
-  }, {
-    "id": 0,
-    "msg": "Configurable optimal attitude",
-    "date": "2020-02-08T15:28:59Z"
-  }, {
-    "id": 1,
-    "msg": "Expanded intermediate model",
-    "date": "2019-08-15T14:34:24Z"
-  }, {
-    "id": 0,
-    "msg": "Upgradable uniform capacity",
-    "date": "2019-10-20T08:25:33Z"
-  }, {
-    "id": 0,
-    "msg": "Configurable 3rd generation array",
-    "date": "2019-04-16T15:19:42Z"
-  }, {
-    "id": 0,
-    "msg": "Grass-roots fresh-thinking software",
-    "date": "2019-03-17T23:25:48Z"
-  }, {
-    "id": 0,
-    "msg": "Automated executive core",
-    "date": "2019-10-30T07:51:12Z"
-  }, {
-    "id": 1,
-    "msg": "Proactive motivating attitude",
-    "date": "2019-11-30T01:08:07Z"
-  }, {
-    "id": 1,
-    "msg": "Programmable multimedia customer loyalty",
-    "date": "2019-08-27T12:27:56Z"
-  }, {
-    "id": 0,
-    "msg": "Future-proofed solution-oriented moderator",
-    "date": "2019-12-29T20:38:36Z"
-  }, {
-    "id": 0,
-    "msg": "Seamless systematic core",
-    "date": "2019-12-17T05:47:45Z"
-  }, {
-    "id": 0,
-    "msg": "Optional incremental concept",
-    "date": "2019-03-11T22:47:40Z"
-  }, {
-    "id": 1,
-    "msg": "Horizontal context-sensitive task-force",
-    "date": "2019-12-02T01:46:25Z"
-  }, {
-    "id": 0,
-    "msg": "Networked object-oriented superstructure",
-    "date": "2019-06-28T00:40:48Z"
-  }, {
-    "id": 1,
-    "msg": "Phased eco-centric internet solution",
-    "date": "2019-07-09T20:44:25Z"
-  }, {
-    "id": 0,
-    "msg": "Programmable bifurcated structure",
-    "date": "2020-01-01T07:04:04Z"
-  }, {
-    "id": 1,
-    "msg": "Total content-based instruction set",
-    "date": "2019-12-16T06:27:26Z"
-  }, {
-    "id": 1,
-    "msg": "Profound needs-based framework",
-    "date": "2019-10-15T05:34:48Z"
-  }, {
-    "id": 0,
-    "msg": "Persistent 24/7 complexity",
-    "date": "2019-08-03T02:32:25Z"
-  }, {
-    "id": 0,
-    "msg": "Compatible 6th generation artificial intelligence",
-    "date": "2019-07-18T18:27:27Z"
-  }, {
-    "id": 1,
-    "msg": "Profit-focused transitional throughput",
-    "date": "2019-10-31T19:11:55Z"
-  }, {
-    "id": 0,
-    "msg": "Extended scalable application",
-    "date": "2019-06-24T14:37:23Z"
-  }, {
-    "id": 1,
-    "msg": "Progressive reciprocal approach",
-    "date": "2019-07-13T21:50:37Z"
-  }, {
-    "id": 1,
-    "msg": "Intuitive bifurcated artificial intelligence",
-    "date": "2019-03-12T14:14:24Z"
-  }, {
-    "id": 1,
-    "msg": "Operative explicit knowledge user",
-    "date": "2019-11-05T07:18:43Z"
-  }, {
-    "id": 0,
-    "msg": "Integrated systemic portal",
-    "date": "2019-08-09T10:12:03Z"
-  }, {
-    "id": 0,
-    "msg": "Profit-focused object-oriented policy",
-    "date": "2019-04-09T20:04:51Z"
-  }, {
-    "id": 0,
-    "msg": "Vision-oriented well-modulated support",
-    "date": "2019-05-24T10:35:46Z"
-  }, {
-    "id": 0,
-    "msg": "Versatile analyzing standardization",
-    "date": "2019-04-23T10:09:03Z"
-  }, {
-    "id": 1,
-    "msg": "Digitized full-range solution",
-    "date": "2019-09-27T14:19:56Z"
-  }, {
-    "id": 0,
-    "msg": "De-engineered leading edge monitoring",
-    "date": "2019-04-24T19:29:31Z"
-  }, {
-    "id": 1,
-    "msg": "Business-focused analyzing infrastructure",
-    "date": "2019-03-09T09:44:17Z"
-  }, {
-    "id": 0,
-    "msg": "Function-based real-time system engine",
-    "date": "2019-03-21T11:09:20Z"
-  }, {
-    "id": 0,
-    "msg": "Cross-group static initiative",
-    "date": "2019-07-31T06:47:51Z"
-  }, {
-    "id": 0,
-    "msg": "Cloned tangible implementation",
-    "date": "2019-10-03T16:43:22Z"
-  }, {
-    "id": 1,
-    "msg": "Persistent exuding functionalities",
-    "date": "2019-03-12T19:34:35Z"
-  }, {
-    "id": 1,
-    "msg": "Persistent empowering framework",
-    "date": "2019-03-18T08:45:14Z"
-  }, {
-    "id": 0,
-    "msg": "Managed solution-oriented database",
-    "date": "2019-09-26T14:52:55Z"
-  }, {
-    "id": 0,
-    "msg": "Down-sized national firmware",
-    "date": "2019-09-22T13:18:22Z"
-  }, {
-    "id": 0,
-    "msg": "Re-contextualized discrete info-mediaries",
-    "date": "2019-05-15T06:41:37Z"
-  }, {
-    "id": 1,
-    "msg": "Reactive foreground implementation",
-    "date": "2019-11-07T17:33:13Z"
-  }, {
-    "id": 1,
-    "msg": "Down-sized explicit capability",
-    "date": "2019-12-05T07:38:52Z"
-  }, {
-    "id": 0,
-    "msg": "Public-key content-based toolset",
-    "date": "2019-03-01T03:03:42Z"
-  }, {
-    "id": 1,
-    "msg": "Seamless object-oriented projection",
-    "date": "2019-08-03T02:11:31Z"
-  }, {
-    "id": 1,
-    "msg": "Quality-focused neutral product",
-    "date": "2019-04-05T03:08:36Z"
-  }, {
-    "id": 0,
-    "msg": "Multi-channelled scalable framework",
-    "date": "2019-08-21T13:38:18Z"
-  }, {
-    "id": 1,
-    "msg": "Stand-alone eco-centric conglomeration",
-    "date": "2019-03-27T05:20:39Z"
-  }, {
-    "id": 0,
-    "msg": "Business-focused 6th generation array",
-    "date": "2019-11-01T14:03:11Z"
-  }, {
-    "id": 1,
-    "msg": "Robust next generation policy",
-    "date": "2019-07-16T11:14:36Z"
-  }, {
-    "id": 0,
-    "msg": "Secured user-facing orchestration",
-    "date": "2019-07-30T00:53:12Z"
-  }, {
-    "id": 1,
-    "msg": "Open-source logistical open architecture",
-    "date": "2019-12-18T01:42:44Z"
-  }, {
-    "id": 1,
-    "msg": "Vision-oriented full-range internet solution",
-    "date": "2019-03-16T20:31:42Z"
-  }, {
-    "id": 1,
-    "msg": "Inverse leading edge system engine",
-    "date": "2019-08-14T05:03:36Z"
-  }, {
-    "id": 1,
-    "msg": "Vision-oriented hybrid product",
-    "date": "2019-04-13T10:49:29Z"
-  }, {
-    "id": 0,
-    "msg": "Switchable systematic forecast",
-    "date": "2019-11-21T11:43:13Z"
-  }, {
-    "id": 0,
-    "msg": "Public-key secondary ability",
-    "date": "2019-11-15T13:24:30Z"
-  }, {
-    "id": 0,
-    "msg": "Upgradable directional projection",
-    "date": "2019-03-21T14:34:07Z"
-  }, {
-    "id": 0,
-    "msg": "Devolved tangible array",
-    "date": "2019-11-08T23:05:38Z"
-  }, {
-    "id": 1,
-    "msg": "Cross-group web-enabled utilisation",
-    "date": "2019-11-27T22:29:01Z"
-  }, {
-    "id": 1,
-    "msg": "Organized content-based firmware",
-    "date": "2019-03-20T20:35:49Z"
-  }, {
-    "id": 0,
-    "msg": "Down-sized interactive adapter",
-    "date": "2019-12-04T12:07:38Z"
-  }, {
-    "id": 1,
-    "msg": "Assimilated bandwidth-monitored system engine",
-    "date": "2019-05-05T21:43:11Z"
-  }, {
-    "id": 0,
-    "msg": "User-centric object-oriented array",
-    "date": "2019-04-13T20:38:06Z"
-  }, {
-    "id": 0,
-    "msg": "Assimilated intermediate attitude",
-    "date": "2019-06-10T22:17:25Z"
-  }, {
-    "id": 1,
-    "msg": "Focused optimal time-frame",
-    "date": "2019-03-23T07:39:29Z"
-  }, {
-    "id": 1,
-    "msg": "User-friendly bi-directional frame",
-    "date": "2019-12-09T23:15:27Z"
-  }, {
-    "id": 0,
-    "msg": "Reverse-engineered foreground methodology",
-    "date": "2019-11-29T07:58:34Z"
-  }, {
-    "id": 1,
-    "msg": "Exclusive executive service-desk",
-    "date": "2019-04-29T09:07:47Z"
-  }, {
-    "id": 1,
-    "msg": "Vision-oriented mobile neural-net",
-    "date": "2019-04-19T12:24:50Z"
-  }, {
-    "id": 1,
-    "msg": "Exclusive incremental service-desk",
-    "date": "2019-03-03T17:08:46Z"
-  }, {
-    "id": 0,
-    "msg": "Ameliorated secondary Graphical User Interface",
-    "date": "2019-03-16T00:35:22Z"
-  }, {
-    "id": 1,
-    "msg": "Implemented intermediate function",
-    "date": "2020-01-18T13:47:45Z"
-  }, {
-    "id": 1,
-    "msg": "Customer-focused dedicated projection",
-    "date": "2019-10-19T03:10:52Z"
-  }, {
-    "id": 1,
-    "msg": "Phased didactic protocol",
-    "date": "2020-01-11T11:31:52Z"
-  }, {
-    "id": 1,
-    "msg": "Optional mission-critical local area network",
-    "date": "2019-12-22T01:19:41Z"
-  }, {
-    "id": 0,
-    "msg": "Reverse-engineered asymmetric superstructure",
-    "date": "2019-08-21T07:07:09Z"
-  }, {
-    "id": 0,
-    "msg": "Streamlined tangible service-desk",
-    "date": "2019-10-10T05:59:44Z"
-  }, {
-    "id": 0,
-    "msg": "Fully-configurable scalable system engine",
-    "date": "2019-11-21T11:47:01Z"
-  }, {
-    "id": 1,
-    "msg": "Pre-emptive uniform forecast",
-    "date": "2019-11-18T21:48:20Z"
-  }, {
-    "id": 1,
-    "msg": "Digitized full-range service-desk",
-    "date": "2019-07-08T17:38:25Z"
-  }, {
-    "id": 0,
-    "msg": "Multi-layered bottom-line pricing structure",
-    "date": "2019-07-29T01:26:20Z"
-  }, {
-    "id": 0,
-    "msg": "Assimilated object-oriented info-mediaries",
-    "date": "2019-09-29T22:35:04Z"
-  }, {
-    "id": 0,
-    "msg": "Progressive bottom-line neural-net",
-    "date": "2019-02-22T07:35:47Z"
-  }, {
-    "id": 0,
-    "msg": "Extended transitional methodology",
-    "date": "2019-04-16T23:00:28Z"
-  }, {
-    "id": 0,
-    "msg": "Cross-group uniform forecast",
-    "date": "2019-07-09T23:42:46Z"
-  }, {
-    "id": 0,
-    "msg": "Quality-focused 6th generation task-force",
-    "date": "2019-06-22T15:40:06Z"
-  }, {
-    "id": 1,
-    "msg": "Reactive 5th generation definition",
-    "date": "2019-05-26T18:22:10Z"
-  }, {
-    "id": 1,
-    "msg": "Optimized high-level challenge",
-    "date": "2019-09-16T13:25:00Z"
-  }, {
-    "id": 1,
-    "msg": "Up-sized bandwidth-monitored capacity",
-    "date": "2019-05-19T16:45:49Z"
+    "msg": "felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-09-16T07:53:46Z"
+  }, {
+    "id": 2,
+    "msg": "enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem",
+    "fuid": 1,
+    "tuid": 5,
+    "date": "2019-06-11T19:57:10Z"
+  }, {
+    "id": 3,
+    "msg": "id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi",
+    "fuid": 4,
+    "tuid": 4,
+    "date": "2019-07-13T06:39:15Z"
+  }, {
+    "id": 4,
+    "msg": "luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac",
+    "fuid": 3,
+    "tuid": 3,
+    "date": "2019-11-11T13:39:59Z"
+  }, {
+    "id": 5,
+    "msg": "sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean",
+    "fuid": 5,
+    "tuid": 1,
+    "date": "2019-04-04T18:58:06Z"
+  }, {
+    "id": 6,
+    "msg": "sit amet turpis elementum ligula vehicula consequat morbi a ipsum",
+    "fuid": 0,
+    "tuid": 3,
+    "date": "2019-12-05T22:05:49Z"
+  }, {
+    "id": 7,
+    "msg": "turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec",
+    "fuid": 1,
+    "tuid": 0,
+    "date": "2019-09-06T04:56:02Z"
+  }, {
+    "id": 8,
+    "msg": "consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed",
+    "fuid": 3,
+    "tuid": 5,
+    "date": "2019-10-19T01:38:01Z"
+  }, {
+    "id": 9,
+    "msg": "mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem",
+    "fuid": 3,
+    "tuid": 2,
+    "date": "2020-01-22T05:42:15Z"
+  }, {
+    "id": 10,
+    "msg": "iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus",
+    "fuid": 2,
+    "tuid": 0,
+    "date": "2019-08-16T17:54:23Z"
+  }, {
+    "id": 11,
+    "msg": "in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus",
+    "fuid": 5,
+    "tuid": 5,
+    "date": "2019-10-11T22:44:29Z"
+  }, {
+    "id": 12,
+    "msg": "odio elementum eu interdum eu tincidunt in leo maecenas pulvinar",
+    "fuid": 0,
+    "tuid": 2,
+    "date": "2019-05-29T16:14:59Z"
+  }, {
+    "id": 13,
+    "msg": "vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
+    "fuid": 4,
+    "tuid": 4,
+    "date": "2019-10-06T08:36:59Z"
+  }, {
+    "id": 14,
+    "msg": "venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis",
+    "fuid": 1,
+    "tuid": 3,
+    "date": "2019-05-07T09:25:07Z"
+  }, {
+    "id": 15,
+    "msg": "molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-12-24T18:39:13Z"
+  }, {
+    "id": 16,
+    "msg": "vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec",
+    "fuid": 2,
+    "tuid": 5,
+    "date": "2019-08-23T15:13:23Z"
+  }, {
+    "id": 17,
+    "msg": "leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque",
+    "fuid": 0,
+    "tuid": 4,
+    "date": "2019-05-07T15:17:22Z"
+  }, {
+    "id": 18,
+    "msg": "mi integer ac neque duis bibendum morbi non quam nec dui luctus",
+    "fuid": 2,
+    "tuid": 4,
+    "date": "2019-11-27T09:56:01Z"
+  }, {
+    "id": 19,
+    "msg": "lorem id ligula suspendisse ornare consequat lectus in est risus auctor",
+    "fuid": 2,
+    "tuid": 0,
+    "date": "2019-11-02T04:08:22Z"
+  }, {
+    "id": 20,
+    "msg": "quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices",
+    "fuid": 0,
+    "tuid": 3,
+    "date": "2019-11-08T19:29:24Z"
+  }, {
+    "id": 21,
+    "msg": "commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget",
+    "fuid": 4,
+    "tuid": 2,
+    "date": "2019-03-23T23:08:30Z"
+  }, {
+    "id": 22,
+    "msg": "nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus",
+    "fuid": 3,
+    "tuid": 0,
+    "date": "2019-06-11T03:01:55Z"
+  }, {
+    "id": 23,
+    "msg": "et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor",
+    "fuid": 1,
+    "tuid": 4,
+    "date": "2019-05-08T20:34:42Z"
+  }, {
+    "id": 24,
+    "msg": "sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut",
+    "fuid": 0,
+    "tuid": 5,
+    "date": "2019-11-10T03:49:27Z"
+  }, {
+    "id": 25,
+    "msg": "in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus",
+    "fuid": 5,
+    "tuid": 2,
+    "date": "2019-06-18T23:51:29Z"
+  }, {
+    "id": 26,
+    "msg": "tempus vivamus in felis eu sapien cursus vestibulum proin eu",
+    "fuid": 5,
+    "tuid": 0,
+    "date": "2019-10-02T21:47:58Z"
+  }, {
+    "id": 27,
+    "msg": "ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-04-30T20:35:16Z"
+  }, {
+    "id": 28,
+    "msg": "viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper",
+    "fuid": 0,
+    "tuid": 2,
+    "date": "2019-03-02T17:13:51Z"
+  }, {
+    "id": 29,
+    "msg": "cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes",
+    "fuid": 2,
+    "tuid": 1,
+    "date": "2019-05-11T19:23:58Z"
+  }, {
+    "id": 30,
+    "msg": "cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec",
+    "fuid": 5,
+    "tuid": 2,
+    "date": "2019-06-05T01:35:41Z"
+  }, {
+    "id": 31,
+    "msg": "cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-04-19T04:20:51Z"
+  }, {
+    "id": 32,
+    "msg": "est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia",
+    "fuid": 5,
+    "tuid": 4,
+    "date": "2020-02-16T21:24:16Z"
+  }, {
+    "id": 33,
+    "msg": "pretium quis lectus suspendisse potenti in eleifend quam a odio in hac",
+    "fuid": 2,
+    "tuid": 0,
+    "date": "2019-09-11T19:26:19Z"
+  }, {
+    "id": 34,
+    "msg": "maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-04-25T04:24:55Z"
+  }, {
+    "id": 35,
+    "msg": "nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor",
+    "fuid": 4,
+    "tuid": 0,
+    "date": "2020-01-27T06:13:19Z"
+  }, {
+    "id": 36,
+    "msg": "congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae",
+    "fuid": 0,
+    "tuid": 1,
+    "date": "2019-10-26T09:14:34Z"
+  }, {
+    "id": 37,
+    "msg": "primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin",
+    "fuid": 4,
+    "tuid": 4,
+    "date": "2019-10-06T15:51:20Z"
+  }, {
+    "id": 38,
+    "msg": "sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus",
+    "fuid": 2,
+    "tuid": 2,
+    "date": "2019-07-16T06:39:27Z"
+  }, {
+    "id": 39,
+    "msg": "malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit",
+    "fuid": 5,
+    "tuid": 5,
+    "date": "2019-12-20T07:33:53Z"
+  }, {
+    "id": 40,
+    "msg": "mi in porttitor pede justo eu massa donec dapibus duis",
+    "fuid": 3,
+    "tuid": 0,
+    "date": "2019-05-20T09:07:43Z"
+  }, {
+    "id": 41,
+    "msg": "platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent",
+    "fuid": 1,
+    "tuid": 3,
+    "date": "2019-04-07T07:43:27Z"
+  }, {
+    "id": 42,
+    "msg": "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus",
+    "fuid": 0,
+    "tuid": 1,
+    "date": "2019-05-26T00:59:46Z"
+  }, {
+    "id": 43,
+    "msg": "non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit",
+    "fuid": 1,
+    "tuid": 1,
+    "date": "2019-09-15T12:22:57Z"
+  }, {
+    "id": 44,
+    "msg": "non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra",
+    "fuid": 0,
+    "tuid": 4,
+    "date": "2019-09-07T07:30:41Z"
+  }, {
+    "id": 45,
+    "msg": "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam",
+    "fuid": 3,
+    "tuid": 4,
+    "date": "2019-08-23T10:30:58Z"
+  }, {
+    "id": 46,
+    "msg": "nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed",
+    "fuid": 1,
+    "tuid": 2,
+    "date": "2019-08-27T03:06:37Z"
+  }, {
+    "id": 47,
+    "msg": "sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis",
+    "fuid": 4,
+    "tuid": 0,
+    "date": "2020-02-10T01:34:47Z"
+  }, {
+    "id": 48,
+    "msg": "felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem",
+    "fuid": 3,
+    "tuid": 3,
+    "date": "2020-02-14T18:50:48Z"
+  }, {
+    "id": 49,
+    "msg": "elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus",
+    "fuid": 2,
+    "tuid": 2,
+    "date": "2019-07-30T10:47:43Z"
+  }, {
+    "id": 50,
+    "msg": "diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-10-11T03:59:06Z"
+  }, {
+    "id": 51,
+    "msg": "est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi",
+    "fuid": 0,
+    "tuid": 0,
+    "date": "2019-11-14T22:58:47Z"
+  }, {
+    "id": 52,
+    "msg": "primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam",
+    "fuid": 3,
+    "tuid": 3,
+    "date": "2019-07-18T22:00:38Z"
+  }, {
+    "id": 53,
+    "msg": "vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio",
+    "fuid": 0,
+    "tuid": 5,
+    "date": "2019-10-21T03:35:15Z"
+  }, {
+    "id": 54,
+    "msg": "platea dictumst maecenas ut massa quis augue luctus tincidunt nulla",
+    "fuid": 1,
+    "tuid": 2,
+    "date": "2019-07-20T12:03:21Z"
+  }, {
+    "id": 55,
+    "msg": "nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel",
+    "fuid": 4,
+    "tuid": 4,
+    "date": "2019-07-02T16:58:14Z"
+  }, {
+    "id": 56,
+    "msg": "vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla",
+    "fuid": 1,
+    "tuid": 5,
+    "date": "2019-12-17T10:24:06Z"
+  }, {
+    "id": 57,
+    "msg": "turpis a pede posuere nonummy integer non velit donec diam",
+    "fuid": 0,
+    "tuid": 5,
+    "date": "2019-08-29T20:41:56Z"
+  }, {
+    "id": 58,
+    "msg": "pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris",
+    "fuid": 3,
+    "tuid": 5,
+    "date": "2019-08-04T23:10:21Z"
+  }, {
+    "id": 59,
+    "msg": "ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur",
+    "fuid": 5,
+    "tuid": 3,
+    "date": "2020-02-02T19:27:18Z"
+  }, {
+    "id": 60,
+    "msg": "amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec",
+    "fuid": 2,
+    "tuid": 4,
+    "date": "2019-06-07T20:10:46Z"
+  }, {
+    "id": 61,
+    "msg": "sagittis dui vel nisl duis ac nibh fusce lacus purus",
+    "fuid": 4,
+    "tuid": 5,
+    "date": "2019-04-08T11:33:03Z"
+  }, {
+    "id": 62,
+    "msg": "eget massa tempor convallis nulla neque libero convallis eget eleifend",
+    "fuid": 0,
+    "tuid": 1,
+    "date": "2019-09-11T14:47:50Z"
+  }, {
+    "id": 63,
+    "msg": "volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in",
+    "fuid": 4,
+    "tuid": 5,
+    "date": "2019-11-20T20:49:35Z"
+  }, {
+    "id": 64,
+    "msg": "sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero",
+    "fuid": 2,
+    "tuid": 1,
+    "date": "2019-02-27T18:43:51Z"
+  }, {
+    "id": 65,
+    "msg": "eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis",
+    "fuid": 5,
+    "tuid": 3,
+    "date": "2020-01-22T02:05:10Z"
+  }, {
+    "id": 66,
+    "msg": "et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit",
+    "fuid": 5,
+    "tuid": 3,
+    "date": "2020-01-13T04:49:52Z"
+  }, {
+    "id": 67,
+    "msg": "felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit",
+    "fuid": 2,
+    "tuid": 5,
+    "date": "2020-01-22T22:51:48Z"
+  }, {
+    "id": 68,
+    "msg": "duis at velit eu est congue elementum in hac habitasse platea dictumst",
+    "fuid": 0,
+    "tuid": 0,
+    "date": "2019-08-10T10:58:45Z"
+  }, {
+    "id": 69,
+    "msg": "sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus",
+    "fuid": 2,
+    "tuid": 0,
+    "date": "2019-04-04T09:50:11Z"
+  }, {
+    "id": 70,
+    "msg": "aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce",
+    "fuid": 0,
+    "tuid": 5,
+    "date": "2019-03-17T08:09:37Z"
+  }, {
+    "id": 71,
+    "msg": "interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu",
+    "fuid": 1,
+    "tuid": 2,
+    "date": "2019-07-09T02:06:26Z"
+  }, {
+    "id": 72,
+    "msg": "tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum",
+    "fuid": 4,
+    "tuid": 1,
+    "date": "2019-08-24T22:09:22Z"
+  }, {
+    "id": 73,
+    "msg": "ut erat id mauris vulputate elementum nullam varius nulla facilisi cras",
+    "fuid": 1,
+    "tuid": 5,
+    "date": "2019-09-24T22:32:43Z"
+  }, {
+    "id": 74,
+    "msg": "risus praesent lectus vestibulum quam sapien varius ut blandit non",
+    "fuid": 4,
+    "tuid": 5,
+    "date": "2019-08-30T00:25:54Z"
+  }, {
+    "id": 75,
+    "msg": "in porttitor pede justo eu massa donec dapibus duis at velit eu est",
+    "fuid": 3,
+    "tuid": 0,
+    "date": "2020-01-04T19:59:48Z"
+  }, {
+    "id": 76,
+    "msg": "rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed",
+    "fuid": 0,
+    "tuid": 0,
+    "date": "2019-07-11T05:02:23Z"
+  }, {
+    "id": 77,
+    "msg": "lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum",
+    "fuid": 1,
+    "tuid": 5,
+    "date": "2019-09-22T17:34:46Z"
+  }, {
+    "id": 78,
+    "msg": "ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere",
+    "fuid": 1,
+    "tuid": 1,
+    "date": "2019-10-03T13:00:16Z"
+  }, {
+    "id": 79,
+    "msg": "porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum",
+    "fuid": 4,
+    "tuid": 1,
+    "date": "2019-06-16T13:42:19Z"
+  }, {
+    "id": 80,
+    "msg": "in ante vestibulum ante ipsum primis in faucibus orci luctus",
+    "fuid": 3,
+    "tuid": 2,
+    "date": "2019-11-21T02:24:04Z"
+  }, {
+    "id": 81,
+    "msg": "diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo",
+    "fuid": 3,
+    "tuid": 0,
+    "date": "2019-04-28T23:39:08Z"
+  }, {
+    "id": 82,
+    "msg": "posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec",
+    "fuid": 4,
+    "tuid": 1,
+    "date": "2019-07-04T13:16:38Z"
+  }, {
+    "id": 83,
+    "msg": "potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla",
+    "fuid": 4,
+    "tuid": 4,
+    "date": "2020-02-01T19:00:48Z"
+  }, {
+    "id": 84,
+    "msg": "ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum",
+    "fuid": 0,
+    "tuid": 3,
+    "date": "2019-06-25T11:29:18Z"
+  }, {
+    "id": 85,
+    "msg": "eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet",
+    "fuid": 0,
+    "tuid": 4,
+    "date": "2019-09-20T15:12:51Z"
+  }, {
+    "id": 86,
+    "msg": "imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor",
+    "fuid": 0,
+    "tuid": 4,
+    "date": "2019-03-06T14:06:46Z"
+  }, {
+    "id": 87,
+    "msg": "in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor",
+    "fuid": 0,
+    "tuid": 5,
+    "date": "2019-08-14T04:11:34Z"
+  }, {
+    "id": 88,
+    "msg": "posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in",
+    "fuid": 4,
+    "tuid": 1,
+    "date": "2019-08-08T01:31:19Z"
+  }, {
+    "id": 89,
+    "msg": "donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede",
+    "fuid": 4,
+    "tuid": 4,
+    "date": "2019-09-08T22:29:41Z"
+  }, {
+    "id": 90,
+    "msg": "massa donec dapibus duis at velit eu est congue elementum in hac habitasse",
+    "fuid": 0,
+    "tuid": 0,
+    "date": "2019-05-25T21:52:32Z"
+  }, {
+    "id": 91,
+    "msg": "mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla",
+    "fuid": 5,
+    "tuid": 5,
+    "date": "2019-07-02T01:31:46Z"
+  }, {
+    "id": 92,
+    "msg": "vel sem sed sagittis nam congue risus semper porta volutpat",
+    "fuid": 2,
+    "tuid": 5,
+    "date": "2019-06-23T05:35:44Z"
+  }, {
+    "id": 93,
+    "msg": "interdum mauris non ligula pellentesque ultrices phasellus id sapien in",
+    "fuid": 0,
+    "tuid": 4,
+    "date": "2019-04-10T15:08:24Z"
+  }, {
+    "id": 94,
+    "msg": "magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus",
+    "fuid": 0,
+    "tuid": 3,
+    "date": "2019-08-17T08:43:06Z"
+  }, {
+    "id": 95,
+    "msg": "nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros",
+    "fuid": 2,
+    "tuid": 5,
+    "date": "2019-03-28T01:51:04Z"
+  }, {
+    "id": 96,
+    "msg": "posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus",
+    "fuid": 2,
+    "tuid": 1,
+    "date": "2019-09-30T02:33:09Z"
+  }, {
+    "id": 97,
+    "msg": "neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse",
+    "fuid": 2,
+    "tuid": 4,
+    "date": "2019-03-25T22:50:32Z"
+  }, {
+    "id": 98,
+    "msg": "lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet",
+    "fuid": 4,
+    "tuid": 3,
+    "date": "2019-10-06T05:58:30Z"
+  }, {
+    "id": 99,
+    "msg": "morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed",
+    "fuid": 1,
+    "tuid": 3,
+    "date": "2019-10-30T11:02:59Z"
+  }, {
+    "id": 100,
+    "msg": "quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate",
+    "fuid": 2,
+    "tuid": 1,
+    "date": "2019-11-28T13:53:41Z"
   }];
+
+  chats$ = new BehaviorSubject([]);
+  newMessage$ = new Subject();
+
+  myUID = null;
+  selectedUID = null;
 
   constructor() { }
 
-  getAll() {
-    return this.chats;
+  getAll() { return this.chats; }
+
+  getAll$ = new Observable<Message[]>(observer => observer.next(this.chats.filter(i => i.fuid === 0 || i.tuid === 1)));
+
+  setMyUID(uid) { this.myUID = uid; }
+
+  changeChatWindow(uid) {
+    if (this.selectedUID !== uid) {
+      this.selectedUID = uid;
+      this.chats$.next(this.chats.filter(i => (i.fuid === this.myUID && i.tuid === uid) || (i.fuid === uid && i.tuid === this.myUID)));
+    }
+  }
+
+  pushNewMessage(message) {
+    this.newMessage$.next(message);
   }
 
   send(msg: string) {
@@ -419,10 +639,16 @@ export class MessageService {
 
     if (!msg) { return; }
 
-    this.chats.push({
-      "id": 0,
-      "msg": msg,
-      "date": new Date().toDateString()
-    })
+    const message: Message = {
+      id: new Date().getMilliseconds(),
+      fuid: this.myUID,
+      tuid: this.selectedUID,
+      msg: msg,
+      date: new Date().toDateString(),
+    }
+
+    this.chats.push(message);
+    this.pushNewMessage(message);
   }
+
 }
