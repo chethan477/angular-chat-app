@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/contact';
 import { ContactService } from '../contact.service';
+import { MessageService } from '../message.service';
+
 
 @Component({
   selector: 'app-contact-list',
@@ -11,7 +13,8 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
 
   constructor(
-    private _contactService: ContactService
+    private _contactService: ContactService,
+    private _msgService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +27,7 @@ export class ContactListComponent implements OnInit {
   }
 
   selectContact(contact) {
-    alert(contact.id);
+    this._msgService.changeChatWindow(contact.id);
   }
 
   selectProfile(event, contact) {
