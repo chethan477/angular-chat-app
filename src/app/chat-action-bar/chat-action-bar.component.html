@@ -1,7 +1,7 @@
 <div class="action-bar">
     <mat-form-field class="form-field">
         <mat-label>Your message goes here</mat-label>
-        <input matInput placeholder="start typing..." [(ngModel)]="message">
+        <input matInput placeholder="start typing..." [(ngModel)]="message" (keydown.enter)="send()">
     </mat-form-field>
     <button mat-button (click)="send()">Send</button>
 </div>
